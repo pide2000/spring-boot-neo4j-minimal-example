@@ -1,14 +1,16 @@
-/*
-    ./client/index.js
-*/
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app.jsx';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { render } from 'react-dom';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import Application from './app.jsx';
 
-ReactDOM.render(
-    <MuiThemeProvider>
-        <App />
-    </MuiThemeProvider>,
-    document.getElementById('app')
-);
+const theme = createMuiTheme();
+
+function App() {
+    return (
+        <MuiThemeProvider theme={theme}>
+            <Application />
+        </MuiThemeProvider>
+    );
+}
+
+render(<App />, document.querySelector('#app'));
